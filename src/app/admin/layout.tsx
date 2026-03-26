@@ -6,9 +6,34 @@ import { usePathname } from 'next/navigation';
 import { Heart, Home, Users, CheckSquare, Dices, Gift, ArrowLeft } from 'lucide-react';
 import styles from '@/components/admin/Admin.module.css';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  
+  const cookieStore = await cookies();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+      },
+    }
+  );
+
+  const { data: { user } } = await supabase.auth.getUser();
+  // Basic security gate: Kick anon users out immediately
+  if (!user) {
+    redirect('/login');
+  }
+
+  // To prevent Next 15 Client component errors in a layout, we pass the standard JSX directly
+  // Note: we removed usePathname because Server Layouts cannot use client side hooks natively without a wrapper.
+  
   const navItems = [
     { label: 'Overview', href: '/admin', icon: <Home size={20} /> },
     { label: 'Users & Subs', href: '/admin/users', icon: <Users size={20} /> },
@@ -36,7 +61,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link 
                 key={item.href} 
                 href={item.href}
-                className={`${styles.navItem} ${pathname === item.href ? styles.activeNav : ''}`}
+                className={styles.navItem}
               >
                 {item.icon}
                 <span>{item.label}</span>
