@@ -6,6 +6,7 @@ import styles from '@/components/admin/Admin.module.css';
 
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import AdminLoginLock from '@/components/admin/AdminLoginLock';
 import { redirect } from 'next/navigation';
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -25,11 +26,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   const { data: { user } } = await supabase.auth.getUser();
   
-  // Advanced Security Gate: Only the assigned Superuser (Owner) can bypass this layout
+  // Advanced Security Gate: If not superuser owner, lock the router UI state entirely
   const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'modeltraining012@gmail.com';
   
   if (!user || user.email !== ADMIN_EMAIL) {
-    redirect('/dashboard');
+    // Return full-screen secure gateway portal intercept
+    return <AdminLoginLock />;
   }
 
   // To prevent Next 15 Client component errors in a layout, we pass the standard JSX directly
