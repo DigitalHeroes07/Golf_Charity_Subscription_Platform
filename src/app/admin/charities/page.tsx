@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/components/admin/Admin.module.css';
-import { charityDirectory } from '@/app/charities/page';
+import { charityDirectory } from '@/lib/data/charities';
 
 export default function AdminCharitiesPage() {
   return (

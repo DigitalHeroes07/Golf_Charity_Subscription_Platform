@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from '@/components/charities/Charities.module.css';
 import { Heart, Search, CheckCircle2 } from 'lucide-react';
-import { charityDirectory } from '@/app/charities/page';
+import { charityDirectory } from '@/lib/data/charities';
 import { useHistory } from '@/hooks/useHistory';
 
 export default function DashboardCharityPage() {
