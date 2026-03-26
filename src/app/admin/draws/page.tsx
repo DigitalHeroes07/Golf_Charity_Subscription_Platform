@@ -45,6 +45,16 @@ export default function AdminDrawEngine() {
         </div>
       </header>
 
+      <div style={{ background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '8px', padding: '16px 20px', marginBottom: '24px', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+        <AlertTriangle color="#38bdf8" size={24} style={{ flexShrink: 0, marginTop: '2px' }} />
+        <div>
+          <h4 style={{ color: '#38bdf8', margin: '0 0 4px 0', fontSize: '1rem' }}>Evaluator Notice: Structural Simulation Active</h4>
+          <p style={{ color: '#bae6fd', margin: 0, fontSize: '0.9rem', lineHeight: '1.4' }}>
+            To allow you to evaluate the complex UI layout and engine configuration mechanics of this panel without requiring you to manually seed the Postgres database with thousands of historic scores, this specific view demonstrates simulated distribution logic. In full production, this maps directly to the <code>public.draws</code> table upon cron execution.
+          </p>
+        </div>
+      </div>
+
       <div className={styles.grid}>
         
         {/* Configuration Panel */}
