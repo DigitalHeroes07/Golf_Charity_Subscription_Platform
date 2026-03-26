@@ -26,9 +26,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   );
 
   const { data: { user } } = await supabase.auth.getUser();
-  // Basic security gate: Kick anon users out immediately
-  if (!user) {
-    redirect('/login');
+  
+  // Advanced Security Gate: Only the assigned Superuser (Owner) can bypass this layout
+  const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'modeltraining012@gmail.com';
+  
+  if (!user || user.email !== ADMIN_EMAIL) {
+    redirect('/dashboard');
   }
 
   // To prevent Next 15 Client component errors in a layout, we pass the standard JSX directly
