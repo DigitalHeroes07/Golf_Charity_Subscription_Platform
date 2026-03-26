@@ -11,9 +11,9 @@ export default async function AdminOverview() {
   
   const stats = {
     totalUsers: realUsers.length,
-    activeSubs: Math.floor(realUsers.length * 0.4), // Simulated conversion rate
-    totalPrizePool: 12500000, // Accumulated from historic DB theoretically
-    charityContributions: 15400000
+    activeSubs: 0, // Production db zero-state
+    totalPrizePool: 0, 
+    charityContributions: 0 
   };
 
   return (
