@@ -43,8 +43,8 @@ export async function proxy(request: NextRequest) {
 
   const { data: { session } } = await supabase.auth.getSession();
 
-  // Basic protection for /dashboard and /admin routes
-  const isProtectedRoute = request.nextUrl.pathname.startsWith('/dashboard') || request.nextUrl.pathname.startsWith('/admin');
+  // Basic protection for /dashboard routes (Admin is now secured natively via AdminLoginLock interceptor)
+  const isProtectedRoute = request.nextUrl.pathname.startsWith('/dashboard');
 
   if (isProtectedRoute && !session && process.env.NEXT_PUBLIC_SUPABASE_URL !== undefined) {
     // If we have actual environment variables but no session, redirect to login
