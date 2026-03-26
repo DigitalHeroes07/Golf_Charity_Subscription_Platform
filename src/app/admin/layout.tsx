@@ -1,7 +1,6 @@
 // Server Component Layout
 import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+
 import { Heart, Home, Users, CheckSquare, Dices, Gift, ArrowLeft } from 'lucide-react';
 import styles from '@/components/admin/Admin.module.css';
 
