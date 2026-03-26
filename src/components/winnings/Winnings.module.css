@@ -1,0 +1,218 @@
+.pageContent {
+  padding: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.pageSubtitle {
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.iconAccent {
+  color: var(--primary);
+}
+
+.drawStatusBox {
+  text-align: center;
+  padding: 32px 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 24px;
+}
+
+.statusLabel {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.drawDate {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.statusBadgeSuccess {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--primary);
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.statusBadgeWaiting {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 179, 8, 0.1);
+  color: var(--accent);
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.winningsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.winningItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 640px) {
+  .winningItem {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.winningLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.winningMatch {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.winningDraw {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.badgePending {
+  display: inline-flex;
+  background: rgba(234, 179, 8, 0.1);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.badgeVerified {
+  display: inline-flex;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.winningRight {
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .winningRight {
+    text-align: right;
+  }
+}
+
+.winningAmount {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.verificationBox {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.uploadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.uploadBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: #cbd5e1;
+}
