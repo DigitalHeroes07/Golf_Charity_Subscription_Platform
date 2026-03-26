@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Heart, Youtube, Instagram, Facebook } from 'lucide-react';
+import { Heart, Globe, Mail, MessageSquare } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -20,9 +20,9 @@ export default function Footer() {
               The premium golf subscription platform that empowers players to give back while offering thrilling monthly prize draws.
             </p>
             <div className={styles.socials}>
-              <a href="#" className={styles.socialIcon}><Youtube size={20} /></a>
-              <a href="#" className={styles.socialIcon}><Instagram size={20} /></a>
-              <a href="#" className={styles.socialIcon}><Facebook size={20} /></a>
+              <a href="mailto:contact@impactgolf.org" className={styles.socialIcon} aria-label="Email"><Mail size={20} /></a>
+              <a href="#" className={styles.socialIcon} aria-label="Community"><MessageSquare size={20} /></a>
+              <a href="#" className={styles.socialIcon} aria-label="Global"><Globe size={20} /></a>
             </div>
           </div>
           
