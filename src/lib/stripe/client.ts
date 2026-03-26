@@ -7,7 +7,8 @@ if (!stripeSecretKey) {
 }
 
 export const stripe = new Stripe(stripeSecretKey || 'sk_test_placeholder', {
-  apiVersion: '2023-10-16', // Adjust based on your targeted Stripe API version
+  // @ts-ignore - Stripe NPM modules strictly lock union api versions. Ignore to support local compilation.
+  apiVersion: '2023-10-16',
   typescript: true,
   appInfo: {
     name: 'Golf Charity Subscription Platform',
